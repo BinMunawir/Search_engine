@@ -105,6 +105,9 @@ public class guiResult extends Stage{
 			tb[i]= new HBox(5);
 			title[i] = new Button((i+1)+")  "+d.title());
 			title[i].setFont(new Font(14));
+			title[i].setOnAction(e -> {
+				new guiDecument(d).show();;
+			});
 			f[i] = new Label("("+r.get(i).getFr()+")");
 			tb[i].getChildren().addAll(title[i],f[i]);
 			shortText[i] = new Label(d.shortText());
@@ -137,6 +140,7 @@ public class guiResult extends Stage{
 		Scene scene = new Scene(mainLayout,600,600);
 		this.setScene(scene);
 		this.setTitle("Result page");
+		
 		
 		System.out.println(time);
 	}

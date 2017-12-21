@@ -1,11 +1,13 @@
 package gui;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import classes.Data;
+import classes.Decument;
 import classes.InvertedIndex;
 import javafx.application.*;
 import javafx.geometry.Pos;
@@ -38,6 +40,25 @@ public class guiSearch extends Stage{
 //		}, 0, 1);
 		
 		// fill components
+		
+		new Thread(new Runnable(){
+
+			@Override
+			public void run() {
+				
+				HashMap<Integer,Decument> data = (new Data()).data;
+				InvertedIndex iv = null;
+				try {
+					iv = new InvertedIndex(data);
+				} catch (IOException e1) {
+					System.out.println("error:sth with inverted index");
+					System.exit(0);
+				}
+				System.out.println("done");
+			}
+		}).start();
+		
+		
 		logo = new Label("Bu3abed search engine");
 		logo.setFont(new Font(30));
 		
@@ -72,7 +93,7 @@ public class guiSearch extends Stage{
 		
 		Scene scene = new Scene(mainLayout,500,300);
 		this.setScene(scene);
-		this.setTitle("Bu3abed Search engine");
+		this.setTitle("Search page");
 		
 	}
 

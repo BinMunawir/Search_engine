@@ -84,7 +84,19 @@ public class Decument extends File {
  		sc.close();
  		return text;//+"...";
  	}
- 	
+  	public String fullText(){
+  		try {
+			sc = new Scanner(this);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+  		String text ="";
+  		while(sc.hasNextLine())
+  			text+=sc.nextLine();
+  		sc.close();
+  		return text;
+  	}
  	
  	
  	
