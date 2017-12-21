@@ -1,3 +1,4 @@
+package classes;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.net.URI;
@@ -44,11 +45,6 @@ public class Decument extends File {
 			((Index)m.getValue()).setFr(constants.round(f, 5));
 		}
 		
-		
-//		for (Map.Entry m : map.entrySet()) 
-//		    System.out.println(m.getKey()+" :---> "+m.getValue());
-//		System.out.println(this.totalWords);
-//		System.out.println(id+"**");
 	}
 	private String wordOpration(String w){
 //		String ww = w;
@@ -69,15 +65,24 @@ public class Decument extends File {
 		return false;
 	}
 	
- 	private String title(){
- 		return "title";
+ 	public String title(){
+ 		return this.getName();
  	}
- 	private String shortText(){
- 		String text = null;
+ 	public String shortText(){
+ 		try {
+			sc=new Scanner(this);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+ 		String text="   ";
  		int cnt=0;
- 		while(sc.hasNext() && cnt<15)
- 			text+="\t"+sc.next();
- 		return text+"...";
+ 		while(sc.hasNext() && cnt<100){
+ 			text+=" "+sc.next();
+ 			cnt++;
+ 		}
+ 		sc.close();
+ 		return text;//+"...";
  	}
  	
  	

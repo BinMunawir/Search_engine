@@ -1,3 +1,4 @@
+package classes;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
@@ -5,7 +6,12 @@ import java.util.Map;
 
 public class Data {
 	
-	public static HashMap<Integer,Decument> data = data(); public static HashMap<Integer,Decument> data() {
+	public HashMap<Integer,Decument> data ;
+	
+	public Data(){
+		data = data();
+	}
+	private HashMap<Integer,Decument> data() {
 		HashMap<Integer,Decument> data = new HashMap<Integer,Decument>();
 		 
 		File dir = new File("data/src");
@@ -22,5 +28,6 @@ public class Data {
 //			System.out.println(m.getKey()+"\t"+m.getValue().getName());
 		return data;
 	}
+	
 	
 }

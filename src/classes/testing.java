@@ -1,3 +1,4 @@
+package classes;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -6,6 +7,7 @@ import java.util.TimerTask;
 
 import data_structure.AVLTree;
 import data_structure.BinaryHeap;
+import gui.*;
 
 public class testing {
 
@@ -22,15 +24,6 @@ public class testing {
 		
 		
 		
-		
-		AVLTree<Index> t = new AVLTree<>();
-//		Index i = new Index(2,1);
-//		t.insert(new Index(1,1));
-//		t.insert(new Index(1,2));
-//		t.insert(i);
-//		t.insert(new Index(2,2));
-//		t.breadthFirst();
-		System.out.println(t);
 		
 		
 		

@@ -1,3 +1,4 @@
+package classes;
 import java.util.Comparator;
 
 public class Index implements Comparable<Index> {

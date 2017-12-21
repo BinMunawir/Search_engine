@@ -1,3 +1,4 @@
+package classes;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -10,17 +11,22 @@ public class Query {
 	
 	private ArrayList<Index> result ;
 	private HashMap<String,AVLTree<Index>> map;
-	public Query(HashMap<String,AVLTree<Index>> map,String s){
+	public Query(HashMap<String,AVLTree<Index>> map,String s,String type){
+		
 		this.map=map;
 		s= s.toLowerCase().trim();
 		String[] ws = s.split(" ");
 		
-		if(ws.length==1){
+		if(type.equals("Single Query")){
 			this.result=singlQuery(ws[0]);
-			System.out.println("singleQuery is done");
-		}else{
-//			this.result=ANDQueries(ws);System.out.println("ANDQueries is done");
-//			this.result=ORQueries(ws);System.out.println("ORQueries is done");
+		}
+		else if (type.equals("AND Queryies")){
+			this.result=ANDQueries(ws);System.out.println("ANDQueries is done");
+		}
+		else if(type.equals("OR Queryies")){
+			this.result=ORQueries(ws);System.out.println("ORQueries is done");
+		}
+		else if(type.equals("NOt Query")){
 			this.result=NOTQueries(ws);System.out.println("NOTQueries is done");
 		}
 		
@@ -39,6 +45,8 @@ public class Query {
 		//sort the indexes by frequency
 		Collections.sort(list,Index.getComByF);
 		Collections.reverse(list);
+		
+		
 				
 		return list;
 	}
@@ -149,7 +157,7 @@ public class Query {
 	public ArrayList<Index> NOTQueries(String[] w){
 		ArrayList<Index> list = new ArrayList<>();
 		
-		for(Map.Entry<Integer,Decument> m : Data.data.entrySet()){
+		for(Map.Entry<Integer,Decument> m : (new Data()).data.entrySet()){
 			boolean isContain = false;
 			for (String s : w) 
 				if(m.getValue().getMap().containsKey(s)){
@@ -171,6 +179,11 @@ public class Query {
 	
 	
 	public ArrayList<Index> getResult() {
+//		ArrayList<Decument> result = new ArrayList<>();
+//		for (Index i : this.result) {
+//			result.add(Data.data.get(i.getDcId()));
+//		}
+		
 		return result;
 	}
 

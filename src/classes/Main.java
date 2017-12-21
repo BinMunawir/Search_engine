@@ -1,3 +1,4 @@
+package classes;
 
 import java.io.*;
 import java.nio.CharBuffer;
@@ -30,14 +31,14 @@ public class Main {
 		
 		
 		
-		String s = "form make abdullah do job great idea";
+		String s = "abdullah";
 		
-		InvertedIndex iv = new InvertedIndex(Data.data);
+//		InvertedIndex iv = new InvertedIndex(Data.data);
 		System.out.println("inverted index time: "+tt);
 		
 		
-		Query q = new Query(iv.getMap(), s);
-		System.out.println(q.getResult().toString());
+//		Query q = new Query(iv.getMap(), s);
+//		System.out.println(q.getResult().toString());
 		System.out.println("finish");
 		
 		
